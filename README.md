@@ -60,7 +60,7 @@ sdk_client = Client(
 
 ### Create a user
 
-For the creation of the user utilize user create method of SDK client.
+To create user, use SDK client method - user.create.
 
 **Request syntax:**
 
