@@ -5,7 +5,7 @@ import pytest
 
 # Import all fixtures.
 # noinspection PyUnresolvedReferences
-from authena_python_sdk_tests.unit.fixtures import *
+from authena_python_sdk_tests.integration.fixtures import *
 
 
 # Force all tests to reseed before running.
