@@ -32,7 +32,7 @@ jobs:
         run: |
           export AUTHENA_PUBLIC_API_URL=${{ secrets.AUTHENA_PUBLIC_API_URL }}
           export AUTHENA_API_KEY=${{ secrets.AUTHENA_API_KEY }}
-          export AUTHENA_API_SECRET=${{ secrets.AUTHENA_API_SECRET }}
+          export AUTHENA_API_SECRET="${{ secrets.AUTHENA_API_SECRET }}"
           pytest authena_python_sdk_tests
 
       - name: Install
