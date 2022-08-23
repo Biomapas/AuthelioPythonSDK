@@ -1,5 +1,6 @@
 from typing import Optional, Any
 
+import urllib3
 from b_lambda_layer_common.util.http_endpoint import HttpEndpoint
 
 from authena_python_sdk.config import Config
@@ -38,8 +39,5 @@ class ClientBase:
             method=method,
             body=body,
             fields=fields,
-            headers={
-                'ApiKey': self.api_key,
-                'ApiSecret': self.api_secret
-            }
+            headers=urllib3.make_headers(basic_auth=f'{self.api_key}:{self.api_secret}')
         )
