@@ -143,12 +143,13 @@ class ClientUser(ClientBase):
         users = {}
         for username, user_dict in response_body_json.items():
             users[username] = User(
-                group_ids=user_dict['group_ids'],
                 username=user_dict['username'],
                 preferred_username=user_dict['preferred_username'],
                 email=user_dict['email'],
                 first_name=user_dict['first_name'],
                 last_name=user_dict['last_name'],
+                group_ids=user_dict['group_ids'],
+                permissions=user_dict['permissions']
             )
 
         return users

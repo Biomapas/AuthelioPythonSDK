@@ -1,5 +1,10 @@
 # Release history
 
+### 0.0.5
+
+- User filter method updated to include directly assigned user permissions.
+- Redundant integration tests removed.
+
 ### 0.0.4
 
 - SDK client base updated by introducing basic auth.
