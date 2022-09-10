@@ -11,7 +11,7 @@ def test_FUNC_client_group_delete_WITH_valid_configuration_EXPECT_group_deleted(
     """
     Check whether with good configuration a group can be deleted.
 
-    :param sdk_client: Authena SDK client.
+    :param sdk_client: Authelio SDK client.
     :param group: Group fixture.
 
     :return: No return.

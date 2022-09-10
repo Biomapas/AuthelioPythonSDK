@@ -12,11 +12,11 @@ from b_lambda_layer_common.exceptions.container.not_found_error import NotFoundE
 def group_function(sdk_client: Client) -> Callable[..., Group]:
     """
     Fixture that returns a function.
-    The function creates a group in the Authena and returns group object.
+    The function creates a group in the Authelio and returns group object.
 
-    This fixture does automatic cleanup (deletes created groups in the Authena) after test run.
+    This fixture does automatic cleanup (deletes created groups in the Authelio) after test run.
 
-    :return: Returns a function that creates a group object in the Authena and returns group object.
+    :return: Returns a function that creates a group object in the Authelio and returns group object.
     """
     group_ids = []
 
@@ -43,10 +43,10 @@ def group_function(sdk_client: Client) -> Callable[..., Group]:
 @fixture(scope='function')
 def group(group_function) -> Group:
     """
-    Fixture that creates a group in the Authena
+    Fixture that creates a group in the Authelio
     and returns newly created group object.
 
-    This fixture does automatic cleanup (deletes created groups in the Authena) after test run.
+    This fixture does automatic cleanup (deletes created groups in the Authelio) after test run.
 
     :return: Returns a newly created and saved group.
     """

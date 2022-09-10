@@ -6,7 +6,7 @@ def test_FUNC_client_group_get_WITH_valid_configuration_EXPECT_group_retrieved(s
     """
     Check whether with good configuration a group can be retrieved.
 
-    :param sdk_client: Authena SDK client.
+    :param sdk_client: Authelio SDK client.
     :param group: Group fixture.
 
     :return: No return.

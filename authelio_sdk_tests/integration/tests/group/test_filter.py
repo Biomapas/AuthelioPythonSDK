@@ -14,7 +14,7 @@ def test_FUNC_client_group_filter_WITH_new_group_EXPECT_new_group_found(
     """
     Test whether filter function works as expected.
 
-    :param sdk_client: Authena SDK client.
+    :param sdk_client: Authelio SDK client.
     :param group_function: Function, that creates group entity.
     :param faker: Faker fixture.
 

@@ -14,7 +14,7 @@ def test_FUNC_client_user_delete_WITH_existing_user_EXPECT_user_deleted(
     """
     Test whether an existing user can be correctly deleted.
 
-    :param sdk_client: Authena SDK client fixture.
+    :param sdk_client: Authelio SDK client fixture.
     :param user: User fixture.
 
     :return: No return.
