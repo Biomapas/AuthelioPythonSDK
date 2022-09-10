@@ -7,7 +7,7 @@ def test_FUNC_client_group_create_WITH_valid_configuration_EXPECT_group_created(
     """
     Check whether with good configuration a new group can be created.
 
-    :param sdk_client: Authena SDK client.
+    :param sdk_client: Authelio SDK client.
 
     :return: No return.
     """

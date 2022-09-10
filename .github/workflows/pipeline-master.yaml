@@ -25,7 +25,7 @@ jobs:
         run: |
           python --version
           pip install . --upgrade
-          pip install -r authena_python_sdk_tests/requirements.txt
+          pip install -r authelio_sdk_tests/requirements.txt
           pip list
 
       - name: Test
@@ -33,7 +33,7 @@ jobs:
           export AUTHENA_PUBLIC_API_URL="${{ secrets.AUTHENA_PUBLIC_API_URL }}"
           export AUTHENA_API_KEY="${{ secrets.AUTHENA_API_KEY }}"
           export AUTHENA_API_SECRET="${{ secrets.AUTHENA_API_SECRET }}"
-          pytest authena_python_sdk_tests
+          pytest authelio_sdk_tests
 
       - name: Install
         run: pip install wheel twine

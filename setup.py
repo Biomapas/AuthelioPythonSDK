@@ -11,16 +11,15 @@ with open('VERSION') as file:
     VERSION = ''.join(VERSION.split())
 
 setup(
-    name='authena_python_sdk',
+    name='authelio_sdk',
     version=VERSION,
     license='Apache License 2.0',
     packages=find_packages(exclude=[
-        # Exclude virtual environment.
         'venv',
         '.venv',
-        'authena_python_sdk_tests',
+        'authelio_sdk_tests',
     ]),
-    description=f'Authena Python SDK',
+    description=f'Authelio Python SDK',
     long_description=README + '\n\n' + HISTORY,
     long_description_content_type='text/markdown',
     include_package_data=True,
@@ -30,8 +29,8 @@ setup(
     ],
     author='Gediminas Kazlauskas',
     author_email='gediminas.kazlauskas@biomapas.com',
-    keywords='Authena Python SDK',
-    url='https://github.com/Biomapas/AuthenaPythonSDK.git',
+    keywords='Authelio Python SDK',
+    url='https://github.com/Biomapas/AuthelioPythonSDK.git',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',

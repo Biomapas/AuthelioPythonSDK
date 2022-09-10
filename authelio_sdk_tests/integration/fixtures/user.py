@@ -13,11 +13,11 @@ def user_function(sdk_client: Client, faker: Faker) -> Callable[..., User]:
     """
     Fixture that returns a function.
 
-    The function creates a user in Authena.
+    The function creates a user in Authelio.
 
     This fixture does automatic cleanup (deletes created users) after test run.
 
-    :return: Returns a function that in Authena and returns a user object.
+    :return: Returns a function that in Authelio and returns a user object.
     """
     user_ids = []
 
@@ -61,10 +61,10 @@ def user_function(sdk_client: Client, faker: Faker) -> Callable[..., User]:
 @fixture(scope='function')
 def user(user_function) -> User:
     """
-    Fixture that creates a user in the Authena
+    Fixture that creates a user in the Authelio
     and returns dictionary representation of that newly created user.
 
-    This fixture does automatic cleanup (deletes created user in the Authena) after test run.
+    This fixture does automatic cleanup (deletes created user in the Authelio) after test run.
 
     :return: Returns a dictionary representation of newly created and saved user.
     """

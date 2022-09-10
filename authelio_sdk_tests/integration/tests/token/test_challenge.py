@@ -12,7 +12,7 @@ def test_FUNC_client_user_confirm_WITH_valid_configuration_EXPECT_challenge_succ
     """
     Check whether newly created user can be confirmed and access token received.
 
-    :param sdk_client: Authena SDK client fixture.
+    :param sdk_client: Authelio SDK client fixture.
     :param group: Group fixture.
     :param faker: Faker fixture.
 
