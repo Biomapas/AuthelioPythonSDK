@@ -2,7 +2,7 @@
 
 ## Description
 
-**Authelio Python SDK** allows an easy and fast integration with **AUTHENA** - authentication and authorization API.
+**Authelio Python SDK** allows an easy and fast integration with **AUTHELIO** - authentication and authorization API.
 
 #### Remarks
 
@@ -39,21 +39,21 @@ pip install .
 
 ### SDK client
 
-Create **Authelio SDK** client using the given **AUTHENA PUBLIC API URL**, **API KEY**, and **API SECRET**:
+Create **Authelio SDK** client using the given **AUTHELIO PUBLIC API URL**, **API KEY**, and **API SECRET**:
 
 ```python
 from authelio_sdk.client import Client
 from authelio_sdk.config import Config
 
-AUTHENA_PUBLIC_API_URL = 'http://localhost'
-AUTHENA_API_KEY = 'DFCC345BE3C0DC42DF8A123F7579'
-AUTHENA_API_SECRET = '4AomCEeUG2j7epT87GahHfh2e8YnaDRthx5k0zfgnnY='
+AUTHELIO_PUBLIC_API_URL = 'http://localhost'
+AUTHELIO_API_KEY = 'DFCC345BE3C0DC42DF8A123F7579'
+AUTHELIO_API_SECRET = '4AomCEeUG2j7epT87GahHfh2e8YnaDRthx5k0zfgnnY='
 
 sdk_client = Client(
-    api_key=AUTHENA_API_KEY,
-    api_secret=AUTHENA_API_SECRET,
+    api_key=AUTHELIO_API_KEY,
+    api_secret=AUTHELIO_API_SECRET,
     config=Config(
-        public_api_url=AUTHENA_PUBLIC_API_URL
+        public_api_url=AUTHELIO_PUBLIC_API_URL
     )
 )
 ```

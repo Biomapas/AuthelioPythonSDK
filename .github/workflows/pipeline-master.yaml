@@ -30,9 +30,8 @@ jobs:
 
       - name: Test
         run: |
-          export AUTHENA_PUBLIC_API_URL="${{ secrets.AUTHENA_PUBLIC_API_URL }}"
-          export AUTHENA_API_KEY="${{ secrets.AUTHENA_API_KEY }}"
-          export AUTHENA_API_SECRET="${{ secrets.AUTHENA_API_SECRET }}"
+          export AUTHELIO_API_KEY="${{ secrets.AUTHELIO_API_KEY }}"
+          export AUTHELIO_API_SECRET="${{ secrets.AUTHELIO_API_SECRET }}"
           pytest authelio_sdk_tests
 
       - name: Install
