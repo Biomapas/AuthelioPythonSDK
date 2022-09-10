@@ -25,7 +25,8 @@ setup(
     long_description_content_type='text/markdown',
     include_package_data=True,
     install_requires=[
-        'b_lambda_layer_common>=3.0.1,<4.0.0'
+        'b_lambda_layer_common>=4.2.2,<5.0.0',
+        'urllib3>=1.26.0'
     ],
     author='Gediminas Kazlauskas',
     author_email='gediminas.kazlauskas@biomapas.com',

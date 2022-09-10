@@ -42,8 +42,8 @@ pip install .
 Create **Authena SDK** client using the given **AUTHENA PUBLIC API URL**, **API KEY**, and **API SECRET**:
 
 ```python
-from authena_python_sdk.client import Client
-from authena_python_sdk.config import Config
+from authelio_sdk.client import Client
+from authelio_sdk.config import Config
 
 AUTHENA_PUBLIC_API_URL = 'http://localhost'
 AUTHENA_API_KEY = 'DFCC345BE3C0DC42DF8A123F7579'
@@ -67,10 +67,10 @@ To create user, use SDK client method - user.create.
 ```python
 response = sdk_client.user.create(
     email='string',
-    preferred_username='string',
+    username='string',
     first_name='string',
     last_name='string',
-    username='string',
+    user_id='string',
     group_ids=['string', 'string', '...'],
     permissions=['string', 'string', '...']
 )
@@ -108,7 +108,7 @@ Retrieval of previously created user.
 **Request syntax:**
 
 ```python
-response = sdk_client.user.get(username='string')
+response = sdk_client.user.get(user_id='string')
 ```
 
 **Parameters**
