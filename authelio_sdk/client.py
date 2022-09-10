@@ -14,7 +14,7 @@ class Client:
     ) -> None:
         self.api_key = api_key
         self.api_secret = api_secret
-        self.config = config or Config()
+        self.config = config or Config.load()
 
     @property
     def group(self) -> ClientGroup:
