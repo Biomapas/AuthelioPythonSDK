@@ -3,4 +3,4 @@ include LICENSE
 include README.md
 include HISTORY.md
 
-recursive-include authena_python_sdk *.py
+recursive-include authelio_sdk *.py

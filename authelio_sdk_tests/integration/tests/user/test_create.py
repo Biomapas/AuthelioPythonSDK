@@ -10,7 +10,7 @@ def test_FUNC_client_user_create_WITH_valid_user_attributes_EXPECT_user_created(
     """
     Check whether a new user can be created.
 
-    :param sdk_client: Authena SDK client fixture.
+    :param sdk_client: Authelio SDK client fixture.
     :param faker: Faker fixture.
 
     :return: No return.

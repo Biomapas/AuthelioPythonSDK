@@ -11,7 +11,7 @@ def test_FUNC_client_user_create_token_WITH_username_password_EXPECT_token_creat
     """
     Check whether the tokens can be created when username and password of an existing user are given.
 
-    :param sdk_client: Authena SDK client fixture.
+    :param sdk_client: Authelio SDK client fixture.
     :param user: User fixture.
 
     :return: No return.
@@ -35,7 +35,7 @@ def test_FUNC_client_user_exchange_auth_code_WITH_authorization_code_EXPECT_toke
     """
     Check whether the tokens can be created when authorization code is given.
 
-    :param sdk_client: Authena SDK client fixture.
+    :param sdk_client: Authelio SDK client fixture.
     :param user: User fixture.
 
     :return: No return.

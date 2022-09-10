@@ -15,7 +15,7 @@ def test_FUNC_client_group_update_WITH_valid_configuration_EXPECT_group_updated(
     """
     Check whether with good configuration a group can be updated.
 
-    :param sdk_client: Authena SDK client.
+    :param sdk_client: Authelio SDK client.
     :param group_function: Function, that creates group entity.
     :param faker: Faker fixture.
 
