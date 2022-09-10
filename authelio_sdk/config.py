@@ -10,7 +10,7 @@ class Config:
 
     def __init__(
             self,
-            public_api_url: str,
+            public_api_url: Optional[str] = None,
             private_api_url: Optional[str] = None
     ):
         self.public_api_url = public_api_url

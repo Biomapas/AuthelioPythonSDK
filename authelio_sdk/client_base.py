@@ -11,7 +11,7 @@ class ClientBase:
             self,
             api_key: str,
             api_secret: str,
-            config: Optional[Config] = None
+            config: Config
     ) -> None:
         self.api_key = api_key
         self.api_secret = api_secret

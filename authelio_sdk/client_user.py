@@ -11,8 +11,8 @@ class ClientUser(ClientBase):
             self,
             api_key: str,
             api_secret: str,
-            config: Optional[Config] = None
-    ):
+            config: Config
+    ) -> None:
         super().__init__(api_key, api_secret, config)
 
     def get(self, user_id: str) -> User:

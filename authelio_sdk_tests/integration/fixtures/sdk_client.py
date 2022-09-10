@@ -5,7 +5,6 @@ import pytest
 from authelio_sdk.client import Client
 from authelio_sdk.config import Config
 
-AUTHELIO_PUBLIC_API_URL = 'https://api.authelio.com'
 AUTHELIO_API_KEY = os.environ['AUTHELIO_API_KEY']
 AUTHELIO_API_SECRET = os.environ['AUTHELIO_API_SECRET']
 
@@ -21,7 +20,4 @@ def sdk_client() -> Client:
     return Client(
         api_key=AUTHELIO_API_KEY,
         api_secret=AUTHELIO_API_SECRET,
-        config=Config(
-            public_api_url=AUTHELIO_PUBLIC_API_URL
-        )
     )
