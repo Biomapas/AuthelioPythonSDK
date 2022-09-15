@@ -1,5 +1,9 @@
 # Release history
 
+### 1.1.0
+
+- User login method returning hosted login page URL added.
+
 ### 0.0.5
 
 - User filter method updated to include directly assigned user permissions.

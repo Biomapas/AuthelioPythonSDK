@@ -58,9 +58,36 @@ sdk_client = Client(
 )
 ```
 
+### Hosted login page
+
+To get hosted login page URL, use SDK client method - `user.login`.
+
+**Request syntax:**
+
+```python
+response = sdk_client.user.login(
+    redirect_uri='https://example.com',
+    response_type='code'
+)
+```
+
+**Parameters**
+
+- **redirect_uri** (string) [OPTIONAL] - URI of the resource for which login page is required. 
+If omitted default resource URI will be used.
+- **response_type** (string) [OPTIONAL] - The response type. Must be either `code` or `token`. 
+Indicates whether the client wants an authorization code for the user (authorization code grant flow), 
+or directly issues tokens for the user (implicit flow). Default: `code`
+
+**Returns**
+
+Hosted login page URL.
+
+Return Type: String
+
 ### Create a user
 
-To create user, use SDK client method - user.create.
+To create user, use SDK client method - `user.create`.
 
 **Request syntax:**
 

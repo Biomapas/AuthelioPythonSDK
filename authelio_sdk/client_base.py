@@ -1,4 +1,4 @@
-from typing import Optional, Any
+from typing import Optional, Any, Dict
 
 import urllib3
 from b_lambda_layer_common.util.http_endpoint import HttpEndpoint
@@ -16,6 +16,10 @@ class ClientBase:
         self.api_key = api_key
         self.api_secret = api_secret
         self.config = config
+
+    @property
+    def basic_auth_header(self) -> Dict[str, str]:
+        return urllib3.make_headers(basic_auth=f'{self.api_key}:{self.api_secret}')
 
     def http_endpoint(
             self,
@@ -39,5 +43,5 @@ class ClientBase:
             method=method,
             body=body,
             fields=fields,
-            headers=urllib3.make_headers(basic_auth=f'{self.api_key}:{self.api_secret}')
+            headers=self.basic_auth_header
         )

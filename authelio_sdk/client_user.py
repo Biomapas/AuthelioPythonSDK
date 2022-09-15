@@ -1,5 +1,7 @@
 from typing import Optional, List, Dict
 
+from b_lambda_layer_common.util.http_endpoint import HttpCall
+
 from authelio_sdk.client_base import ClientBase
 from authelio_sdk.config import Config
 from authelio_sdk.models.token import Token
@@ -36,7 +38,7 @@ class ClientUser(ClientBase):
             is_active=user_json['is_active'],
             # Permissions.
             direct_permissions=user_json['direct_permissions'],
-            group_ids = user_json['group_ids']
+            group_ids=user_json['group_ids']
         )
 
     def delete(self, user_id: str) -> None:
@@ -260,3 +262,20 @@ class ClientUser(ClientBase):
         ).call_to_json()
 
         return permissions['permissions']
+
+    def login(self, redirect_uri: Optional[str] = None, response_type: Optional[str] = None) -> str:
+        parameters = {
+            'redirect_uri': redirect_uri,
+            'response_type': response_type
+        }
+        parameters = {key: value for key, value in parameters.items() if value is not None}
+
+        response = HttpCall.call(
+            method='GET',
+            url=f'{self.config.public_api_url}/login',
+            fields=parameters,
+            headers=self.basic_auth_header,
+            redirect=False
+        )
+
+        return response.headers['location']
