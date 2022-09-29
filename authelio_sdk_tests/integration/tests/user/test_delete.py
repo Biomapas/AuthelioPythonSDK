@@ -20,7 +20,9 @@ def test_FUNC_client_user_delete_WITH_existing_user_EXPECT_user_deleted(
     :return: No return.
     """
     # Ensure user exists.
-    refreshed_user = sdk_client.user.get(user.user_id)
+    refreshed_user = sdk_client.user.get(user_ids=[user.user_id])
+    refreshed_user = refreshed_user[user.user_id]
+
     assert refreshed_user.user_id == user.user_id
 
     # Expect this to succeed.
@@ -32,4 +34,4 @@ def test_FUNC_client_user_delete_WITH_existing_user_EXPECT_user_deleted(
 
     # Expect this to fail.
     with pytest.raises(NotFoundError):
-        sdk_client.user.get(user.user_id)
+        sdk_client.user.get(user_ids=[user.user_id])

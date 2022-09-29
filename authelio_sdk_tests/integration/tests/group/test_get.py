@@ -12,6 +12,7 @@ def test_FUNC_client_group_get_WITH_valid_configuration_EXPECT_group_retrieved(s
     :return: No return.
     """
     # Ensure group exists.
-    retrieved_group = sdk_client.group.get(group.group_id)
+    groups_data = sdk_client.group.get(group_ids=[group.group_id])
+    retrieved_group = groups_data[group.group_id]
 
     assert retrieved_group.group_id == group.group_id

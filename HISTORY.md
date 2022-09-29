@@ -1,5 +1,20 @@
 # Release history
 
+### 2.0.0
+
+- New method `users` for the client `Group` added. The method retrieves either user IDs
+  for the given group or common user ids for the given groups.
+- Client `User` updates:
+    - Method `filter` updated. Method accepts optional pagination parameters, `count` and
+      next page token `page_id`. Returns chunk of filtered user entities and next page token
+      if such exist.
+    - Method `get` updated. Retrieval of multiple user entities implemented.
+- Client `Group` updates:
+    - Method `filter` updated. Method accepts optional pagination parameters, `count` and
+      next page token `page_id`. Returns chunk of filtered group entities and next page token
+      if such exist.
+    - Method `get` updated. Retrieval of multiple group entities implemented.
+
 ### 1.1.0
 
 - User login method returning hosted login page URL added.

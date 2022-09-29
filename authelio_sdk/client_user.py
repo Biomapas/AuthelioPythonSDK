@@ -1,4 +1,4 @@
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 
 from b_lambda_layer_common.util.http_endpoint import HttpCall
 
@@ -17,29 +17,31 @@ class ClientUser(ClientBase):
     ) -> None:
         super().__init__(api_key, api_secret, config)
 
-    def get(self, user_id: str) -> User:
-        user_json = self.http_endpoint(
+    def get(self, user_ids: List[str]) -> Dict[str, User]:
+        parameters = [('user_id', user_id) for user_id in user_ids]
+        users_data = self.http_endpoint(
             path='/user/get',
             method='GET',
-            fields={
-                'user_id': user_id
-            }
+            fields=parameters
         ).call_to_json()
 
-        return User(
-            # Unique identifiers.
-            user_id=user_json['user_id'],
-            username=user_json['username'],
-            email=user_json['email'],
-            # Other personal data.
-            first_name=user_json['first_name'],
-            last_name=user_json['last_name'],
-            # User status.
-            is_active=user_json['is_active'],
-            # Permissions.
-            direct_permissions=user_json['direct_permissions'],
-            group_ids=user_json['group_ids']
-        )
+        return {
+            user_id: User(
+                # Unique identifiers.
+                user_id=user['user_id'],
+                username=user['username'],
+                email=user['email'],
+                # Other personal data.
+                first_name=user['first_name'],
+                last_name=user['last_name'],
+                # User status.
+                is_active=user['is_active'],
+                # Permissions.
+                direct_permissions=user['direct_permissions'],
+                group_ids=user['group_ids']
+            )
+            for user_id, user in users_data.items()
+        }
 
     def delete(self, user_id: str) -> None:
         self.http_endpoint(
@@ -135,33 +137,37 @@ class ClientUser(ClientBase):
 
     def filter(
             self,
-            group_id: Optional[str] = None,
-            user_ids: Optional[List[str]] = None,
-            is_active: Optional[bool] = None
-    ) -> Dict[str, User]:
+            is_active: Optional[bool] = None,
+            count: Optional[int] = None,
+            page_id: Optional[str] = None
+    ) -> Tuple[Dict[str, User], str]:
+        parameters = {
+            'is_active': is_active,
+            'count': count,
+            'page_id': page_id
+        }
+        parameters = {key: value for key, value in parameters.items() if value is not None}
+
         response_body_json = self.http_endpoint(
             path='/user/filter',
             method='GET',
-            fields=[
-                ('group_id', group_id),
-                ('is_active', is_active),
-                *[('user_id', user_id) for user_id in user_ids or []]
-            ]
+            fields=parameters
         ).call_to_json()
 
-        users = {}
-        for username, user_dict in response_body_json.items():
-            users[username] = User(
-                user_id=user_dict['user_id'],
-                username=user_dict['username'],
-                email=user_dict['email'],
-                first_name=user_dict['first_name'],
-                last_name=user_dict['last_name'],
-                group_ids=user_dict['group_ids'],
-                direct_permissions=user_dict['direct_permissions']
+        users = {
+            user_id: User(
+                user_id=user['user_id'],
+                username=user['username'],
+                email=user['email'],
+                first_name=user['first_name'],
+                last_name=user['last_name'],
+                group_ids=user['group_ids'],
+                direct_permissions=user['direct_permissions']
             )
+            for user_id, user in response_body_json['results'].items()
+        }
 
-        return users
+        return users, response_body_json['next_page_id']
 
     def confirm(self, username: str, tmp_password: str, new_password: str) -> None:
         token_json = self.http_endpoint(
