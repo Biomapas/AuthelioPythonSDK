@@ -15,7 +15,8 @@ def test_FUNC_client_user_get_WITH_existing_user_EXPECT_user_returned(
     :return: No return.
     """
     # Get the created new user.
-    retrieved_user = sdk_client.user.get(user.user_id)
+    user_data = sdk_client.user.get(user_ids=[user.user_id])
+    retrieved_user = user_data[user.user_id]
 
     # Check that the original data exists.
     assert retrieved_user.user_id == user.user_id

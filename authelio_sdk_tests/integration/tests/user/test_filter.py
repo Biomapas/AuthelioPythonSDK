@@ -24,7 +24,7 @@ def test_FUNC_client_user_filter_WITH_many_users_to_filter_all_EXPECT_users_foun
     users = [user_function(direct_permissions=direct_permissions).user_id for _ in range(5)]
 
     # Try to filter all users.
-    user_data = sdk_client.user.filter()
+    user_data, next_page_id = sdk_client.user.filter()
 
     # Check that all users were found.
     for username in users:
