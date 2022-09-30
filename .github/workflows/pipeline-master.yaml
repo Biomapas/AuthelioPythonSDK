@@ -32,6 +32,7 @@ jobs:
         run: |
           export AUTHELIO_API_KEY="${{ secrets.AUTHELIO_API_KEY }}"
           export AUTHELIO_API_SECRET="${{ secrets.AUTHELIO_API_SECRET }}"
+          export AUTHELIO_API_URL="${{ secrets.AUTHELIO_API_URL }}"
           pytest authelio_sdk_tests
 
       - name: Install
