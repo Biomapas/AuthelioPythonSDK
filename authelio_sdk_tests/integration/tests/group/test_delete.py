@@ -17,8 +17,7 @@ def test_FUNC_client_group_delete_WITH_valid_configuration_EXPECT_group_deleted(
     :return: No return.
     """
     # Ensure group exists.
-    retrieved_group = sdk_client.group.get(group_ids=[group.group_id])
-    retrieved_group = retrieved_group[group.group_id]
+    retrieved_group = sdk_client.group.get(group.group_id)[group.group_id]
 
     assert retrieved_group.group_id == group.group_id
 
@@ -30,4 +29,4 @@ def test_FUNC_client_group_delete_WITH_valid_configuration_EXPECT_group_deleted(
 
     # Try to get deleted group. Should fail.
     with pytest.raises(NotFoundError):
-        sdk_client.group.get(group_ids=[retrieved_group.group_id])
+        sdk_client.group.get(retrieved_group.group_id)

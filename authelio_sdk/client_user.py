@@ -17,7 +17,7 @@ class ClientUser(ClientBase):
     ) -> None:
         super().__init__(api_key, api_secret, config)
 
-    def get(self, user_ids: List[str]) -> Dict[str, User]:
+    def get(self, *user_ids: str) -> Dict[str, User]:
         parameters = [('user_id', user_id) for user_id in user_ids]
         users_data = self.http_endpoint(
             path='/user/get',

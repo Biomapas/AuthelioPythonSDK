@@ -21,6 +21,6 @@ def test_FUNC_client_group_users_WITH_users_in_group_EXPECT_group_users_returned
     """
     user_ids = [user_function(group_ids=[group.group_id]).user_id for _ in range(5)]
 
-    fetched_group_users = sdk_client.group.users(group_ids=[group.group_id])
+    fetched_group_users = sdk_client.group.users(group.group_id)
 
     assert sorted(fetched_group_users) == sorted(user_ids)

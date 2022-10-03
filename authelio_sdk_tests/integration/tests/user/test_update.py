@@ -30,8 +30,7 @@ def test_FUNC_client_user_update_WITH_existing_user_EXPECT_user_updated(
     new_groups = [group_function().group_id for _ in range(2)]
 
     # Get the created new user.
-    retrieved_user = sdk_client.user.get(user_ids=[user.user_id])
-    retrieved_user = retrieved_user[user.user_id]
+    retrieved_user = sdk_client.user.get(user.user_id)[user.user_id]
 
     # Check that the original data exists.
     assert retrieved_user.user_id == user.user_id
@@ -52,8 +51,7 @@ def test_FUNC_client_user_update_WITH_existing_user_EXPECT_user_updated(
     sleep(11)
 
     # Refresh data from the database.
-    refreshed_user = sdk_client.user.get(user_ids=[user.user_id])
-    refreshed_user = refreshed_user[user.user_id]
+    refreshed_user = sdk_client.user.get(user.user_id)[user.user_id]
 
     # Check that the user data was indeed updated.
     assert refreshed_user.user_id == user.user_id
