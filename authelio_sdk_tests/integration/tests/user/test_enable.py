@@ -17,8 +17,7 @@ def test_FUNC_client_user_enable_WITH_valid_configuration_EXPECT_user_enabled(
     :return: No return.
     """
     # Get the created new user.
-    refreshed_user = sdk_client.user.get(user_ids=[user.user_id])
-    refreshed_user = refreshed_user[user.user_id]
+    refreshed_user = sdk_client.user.get(user.user_id)[user.user_id]
 
     # Check that the original data exists.
     assert refreshed_user.user_id == user.user_id
@@ -31,8 +30,7 @@ def test_FUNC_client_user_enable_WITH_valid_configuration_EXPECT_user_enabled(
     sleep(11)
 
     # Refresh data from the database.
-    refreshed_user = sdk_client.user.get(user_ids=[user.user_id])
-    refreshed_user = refreshed_user[user.user_id]
+    refreshed_user = sdk_client.user.get(user.user_id)[user.user_id]
 
     # Check that the user was indeed disabled.
     assert refreshed_user.user_id == user.user_id
@@ -45,8 +43,7 @@ def test_FUNC_client_user_enable_WITH_valid_configuration_EXPECT_user_enabled(
     sleep(11)
 
     # Refresh data from the database.
-    refreshed_user = sdk_client.user.get(user_ids=[user.user_id])
-    refreshed_user = refreshed_user[user.user_id]
+    refreshed_user = sdk_client.user.get(user.user_id)[user.user_id]
 
     # Check that the user was indeed enabled.
     assert refreshed_user.user_id == user.user_id

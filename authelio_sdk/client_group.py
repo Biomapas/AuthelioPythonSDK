@@ -14,7 +14,7 @@ class ClientGroup(ClientBase):
     ) -> None:
         super().__init__(api_key, api_secret, config)
 
-    def get(self, group_ids: List[str]) -> Dict[str, Group]:
+    def get(self, *group_ids: str) -> Dict[str, Group]:
         parameters = [('group_id', group_id) for group_id in group_ids]
         groups_data = self.http_endpoint(
             path='/group/get',
@@ -102,7 +102,7 @@ class ClientGroup(ClientBase):
             body=body
         ).call_to_response()
 
-    def users(self, group_ids: List[str]) -> List[str]:
+    def users(self, *group_ids: str) -> List[str]:
         parameters = [('group_id', group_id) for group_id in group_ids]
 
         return self.http_endpoint(

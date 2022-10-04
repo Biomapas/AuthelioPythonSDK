@@ -1,5 +1,10 @@
 # Release history
 
+### 3.0.0
+
+- `user_ids` as arguments for the client `User` method `get` introduced.
+- `group_ids` as arguments for the client `Group` methods `get` and `users` introduced. 
+
 ### 2.0.0
 
 - New method `users` for the client `Group` added. The method retrieves either user IDs

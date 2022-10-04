@@ -38,8 +38,7 @@ def test_FUNC_client_group_update_WITH_valid_configuration_EXPECT_group_updated(
     # Sleep for the cache to be cleared.
     sleep(11)
 
-    updated_group = sdk_client.group.get(group_ids=[group.group_id])
-    updated_group = updated_group[group.group_id]
+    updated_group = sdk_client.group.get(group.group_id)[group.group_id]
 
     assert updated_group.group_id == group.group_id, updated_group.group_id
     assert updated_group.group_name == new_group_name, updated_group.group_name
