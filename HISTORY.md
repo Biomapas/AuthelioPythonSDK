@@ -1,5 +1,9 @@
 # Release history
 
+### 3.0.1
+
+- Limit urllib3 dependency up to the breaking version.
+
 ### 3.0.0
 
 - `user_ids` as arguments for the client `User` method `get` introduced.
