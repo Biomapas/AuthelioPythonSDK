@@ -55,28 +55,32 @@ class ClientUser(ClientBase):
     def create(
             self,
             email: str,
-            username: str,
             first_name: str,
             last_name: str,
             user_id: Optional[str] = None,
+            username: Optional[str] = None,
             group_ids: Optional[List[str]] = None,
-            direct_permissions: Optional[List[str]] = None
+            direct_permissions: Optional[List[str]] = None,
+            auth_type: Optional[str] = None
     ) -> User:
+        group_ids = group_ids or []
+        direct_permissions = direct_permissions or []
+
+        body = {
+                'email': email,
+                'first_name': first_name,
+                'last_name': last_name,
+                'group_ids': group_ids,
+                'direct_permissions': direct_permissions
+            }
+        if user_id: body.update(user_id=user_id)
+        if username: body.update(username=username)
+        if auth_type: body.update(auth_type=auth_type)
+
         user_json = self.http_endpoint(
             path='/user/create',
             method='POST',
-            body={
-                # Unique identifiers.
-                'user_id': user_id,
-                'username': username,
-                'email': email,
-                # Other personal data.
-                'first_name': first_name,
-                'last_name': last_name,
-                # Permissions.
-                'direct_permissions': direct_permissions,
-                'group_ids': group_ids,
-            }
+            body=body
         ).call_to_json()
 
         return User(
@@ -87,7 +91,8 @@ class ClientUser(ClientBase):
             first_name=first_name,
             last_name=last_name,
             tmp_password=user_json['tmp_password'],
-            direct_permissions=direct_permissions
+            direct_permissions=direct_permissions,
+            auth_type=auth_type
         )
 
     def enable(self, user_id: str) -> None:

@@ -1,5 +1,12 @@
 # Release history
 
+### 3.1.0
+
+- User `create` method updates:
+  - A new optional parameter `auth_type` introduced. Parameter allows to specify user authentication type.
+  - Mandatory parameter `username` change into an optional one. The Authelio API does not allowed to 
+  specify `username` for the user of `federated_sso` auth type.
+
 ### 3.0.1
 
 - Limit urllib3 dependency up to the breaking version.
