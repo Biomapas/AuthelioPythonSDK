@@ -14,3 +14,4 @@ class User:
     tmp_password: Optional[str] = None
     password: Optional[str] = None
     is_active: bool = True
+    auth_type: Optional[str] = None
