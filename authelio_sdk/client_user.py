@@ -69,13 +69,13 @@ class ClientUser(ClientBase):
         body = {
                 'email': email,
                 'first_name': first_name,
-                'last_name': last_name,
-                'group_ids': group_ids,
-                'direct_permissions': direct_permissions
+                'last_name': last_name
             }
         if user_id: body.update(user_id=user_id)
         if username: body.update(username=username)
         if auth_type: body.update(auth_type=auth_type)
+        if group_ids: body.update(group_ids=group_ids)
+        if direct_permissions: body.update(direct_permissions=direct_permissions)
 
         user_json = self.http_endpoint(
             path='/user/create',
