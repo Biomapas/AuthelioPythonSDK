@@ -1,5 +1,9 @@
 # Release history
 
+### 3.1.1
+- User `create` method update:
+  - Addition of optional parameters to `user/create` endpoint payload revised.
+
 ### 3.1.0
 
 - User `create` method updates:
